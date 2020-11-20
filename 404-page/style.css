@@ -1,0 +1,16 @@
+body {
+    background-color: #16243A;
+    color: #f1eccf;
+}
+
+#x {
+    background-color: #16243A;
+    height: 400px;
+    position: relative;
+}
+
+#x .icon {
+    position: absolute;
+    z-index: 2;
+    height: 4rem;
+}
