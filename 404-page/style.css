@@ -1,37 +1,48 @@
 body {
-    background-color: #16243A;
-    color: #f1eccf;
+  background-color: #16243a;
+  color: #f1eccf;
 }
 
 #x {
-    background-color: #16243A;
-    height: 400px;
-    position: relative;
+  height: 50vh;
+  position: relative;
 }
 
 #x .icon {
-    position: absolute;
-    z-index: 2;
-    height: 4rem;
+  position: absolute;
+  z-index: 2;
+  height: 4rem;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 4.5rem;
+}
 
-:root {
-    cursor: none;
-    --cursorX: 50vw;
-    --cursorY: 50vh;
-  }
-  #x:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    pointer-events: none;
-    background: radial-gradient(
-      circle 10vmax at var(--cursorX) var(--cursorY),
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.5) 80%,
-      rgba(0,0,0,.95) 100%
+.flashlight {
+  z-index: 1001;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  position: fixed;
+  top:30vh;
+  left: 0;
+  background-repeat: no-repeat;
+  background: radial-gradient(
+      100px 100px,
+      circle contain,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1)
     )
-  }
+    center center;
+  background: -webkit-radial-gradient(
+      100px 100px,
+      circle contain,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1)
+    )
+    center center;
+
+}

@@ -3,8 +3,8 @@
   var init = function () {
     var canvas = document.querySelector('#x');
     var icon_template = document.querySelector('#template');
-    var icon_width = 200;
-    var icon_height = 200;
+    var icon_width = 64;
+    var icon_height = 64;
     var the_images = [
       './img/gingerbread-man.png',
       './img/penguin.png',
@@ -38,16 +38,12 @@
       createImage(i);
     }
 
-    function update(e) {
-      var x = e.clientX || e.touches[0].clientX;
-      var y = e.clientY || e.touches[0].clientY;
+    var flashlight = document.getElementById('flashlight');
 
-      document.documentElement.style.setProperty('--cursorX', x + 'px');
-      document.documentElement.style.setProperty('--cursorY', y + 'px');
-    }
-
-    document.addEventListener('mousemove', update);
-    document.addEventListener('touchmove', update);
+    flashlight.onmousemove = function (event) {
+      this.style.backgroundPosition =
+        event.clientX - 120 + 'px ' + (event.clientY - 310) + 'px';
+    };
   };
   window.addEventListener('load', init);
 })(window, document);
