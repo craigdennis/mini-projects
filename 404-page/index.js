@@ -14,28 +14,29 @@
       './img/snowman.png',
     ];
 
+    let image = {};
+    let newImage = {};
+
     var total_number_of_images = the_images.length;
     var max_height = canvas.offsetHeight - icon_height;
     var max_width = canvas.offsetWidth - icon_width;
+
     var randomCoordinate = function () {
-      var r = [];
-      var x = Math.floor(Math.random() * max_width);
-      var y = Math.floor(Math.random() * max_height);
-      r = [x, y];
-      return r;
+      image.x = Math.floor(Math.random() * max_width);
+      image.y = Math.floor(Math.random() * max_height);
     };
-    var createImage = function (index) {
+    var createImage = function (index, x, y) {
       var node = icon_template.cloneNode(true);
-      var xy = randomCoordinate();
       node.removeAttribute('id');
       node.removeAttribute('hidden');
-      node.style.top = xy[1] + 'px';
-      node.style.left = xy[0] + 'px';
+      node.style.top = y + 'px';
+      node.style.left = x + 'px';
       node.setAttribute('src', the_images[index]);
       canvas.appendChild(node);
     };
     for (var i = 0; i < total_number_of_images; i++) {
-      createImage(i);
+      randomCoordinate()
+      createImage(i, image.x, image.y);
     }
   };
   window.addEventListener('load', init);
