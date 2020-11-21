@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 Page</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
   </head>
   <body>
-    <h1>404 Page</h1>
+    <div class="cursor">
+      <div class="cursor__ball cursor__ball--big ">
+        <svg height="30" width="30">
+          <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+        </svg>
+      </div>
+      
+      <div class="cursor__ball cursor__ball--small">
+        <svg height="10" width="10">
+          <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+        </svg>
+      </div>
+    </div>
+    <h1 class="hoverable">404 Page</h1>
     <h2>Hello there. You have stumbled across the lost and found.</h2>
     <div>
       Icons made by
@@ -20,7 +34,10 @@
 
     <div id="x"></div>
 
-    <img src="#" class="icon" hidden="hidden" id="template" />
+    <img src="#" class="hoverable icon hidden" hidden="hidden" id="template" />
+
+  
+    
 
     <script src="index.js"></script>
   </body>
