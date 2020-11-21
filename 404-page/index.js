@@ -3,8 +3,8 @@
   var init = function () {
     var canvas = document.querySelector('#x');
     var icon_template = document.querySelector('#template');
-    var icon_width = 200;
-    var icon_height = 200;
+    var icon_width = 64;
+    var icon_height = 64;
     var the_images = [
       './img/gingerbread-man.png',
       './img/penguin.png',
@@ -38,43 +38,12 @@
       createImage(i);
     }
 
-    const $bigBall = document.querySelector('.cursor__ball--big');
-    const $smallBall = document.querySelector('.cursor__ball--small');
-    const $hoverables = document.querySelectorAll('.hoverable');
+    var flashlight = document.getElementById('flashlight');
 
-    // Listeners
-    document.body.addEventListener('mousemove', onMouseMove);
-    for (let i = 0; i < $hoverables.length; i++) {
-      $hoverables[i].addEventListener('mouseenter', onMouseHover);
-      $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-    }
-
-    // Move the cursor
-    function onMouseMove(e) {
-      TweenMax.to($bigBall, 0.4, {
-        x: e.pageX - 15,
-        y: e.pageY - 15,
-      });
-      TweenMax.to($smallBall, 0.1, {
-        x: e.pageX - 5,
-        y: e.pageY - 7,
-      });
-    }
-
-    // Hover an element
-    function onMouseHover(e) {
-      TweenMax.to($bigBall, 0.3, {
-        scale: 4,
-      });
-      e.setAttribute('class', 'hidden')
-    }
-    function onMouseHoverOut(e) {
-      TweenMax.to($bigBall, 0.3, {
-        scale: 1,
-      });
-      e.setAttribute('class', 'appear')
-    }
-    
+    flashlight.onmousemove = function (event) {
+      this.style.backgroundPosition =
+        event.clientX - 120 + 'px ' + (event.clientY - 310) + 'px';
+    };
   };
   window.addEventListener('load', init);
 })(window, document);
