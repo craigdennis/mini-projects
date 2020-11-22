@@ -38,12 +38,16 @@
       createImage(i);
     }
 
+    //Flashlight
+
     var flashlight = document.getElementById('flashlight');
 
     flashlight.onmousemove = function (event) {
       this.style.backgroundPosition =
         event.clientX - 120 + 'px ' + (event.clientY - 310) + 'px';
     };
+
+    //actions on image
   };
   window.addEventListener('load', init);
 })(window, document);
