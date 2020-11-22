@@ -16,13 +16,16 @@ const modal3 = {
     'One day i was a modal man. It was a challenging life. It was all that i did and nothing could help me. I was helpless for this modal life.',
 };
 
+const title = document.querySelector('.modal-title');
+const text = document.querySelector('.modal-text');
+
 // Get the modal
 var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
-var modal1 = document.getElementById('modal-1');
-var modal1 = document.getElementById('modal-2');
-var modal1 = document.getElementById('modal-3');
+var modal1Btn = document.getElementById('modal-1');
+var modal2Btn = document.getElementById('modal-2');
+var modal3Btn = document.getElementById('modal-3');
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName('close')[0];
@@ -41,9 +44,33 @@ window.onclick = function (event) {
   
 
 // When the user clicks on the button, open the modal
-btn.onclick = function () {
+modal1Btn.onclick = function () {
   modal.style.display = 'block';
+  title.textContent = modal1.title;
+  text.textContent = modal1.text;
 };
+
+modal2Btn.onclick = function () {
+    modal.style.display = 'block';
+    title.textContent = modal2.title;
+    text.textContent = modal2.text;
+  };
+
+  modal3Btn.onclick = function () {
+    modal.style.display = 'block';
+    title.textContent = modal3.title;
+    text.textContent = modal3.text;
+  };
+
+
+  // making esc dismiss modal
+  document.addEventListener("keydown", function(event) {
+    const key = event.key;
+    if (key === "Escape") {
+        modal.style.display = 'none';
+    }
+});
+
 
 
 
