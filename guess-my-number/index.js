@@ -6,7 +6,7 @@ const checkBtn = document.querySelector('.check-btn');
 const guessHelp = document.getElementById('guess-help');
 const scoreLabel = document.getElementById('score-label');
 const startAgainBtn = document.getElementById('start-again');
-const higscoreLabel = document.getElementById('highscore');
+const highscoreLabel = document.getElementById('highscore');
 
 const lowerHelpMsg = 'You need to guess lower';
 const higherHelpMsg = 'You need to guess higher';
@@ -20,28 +20,26 @@ function randomNumber() {
   return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
 }
 
+//Event listeners
+
 checkBtn.addEventListener('click', checkGuess);
 startAgainBtn.addEventListener('click', startAgain);
+
+//functions
 
 function checkGuess() {
   let guessedNum = guessedNumber.value;
 
   if (guessedNum > numberToGuess) {
-    guessHelp.textContent = lowerHelpMsg;
-    score--;
-    scoreLabel.textContent = score;
+    updateUI(lowerHelpMsg);
   } else if (guessedNum < numberToGuess) {
-    guessHelp.textContent = higherHelpMsg;
-    score--;
-    scoreLabel.textContent = score;
+    updateUI(higherHelpMsg);
   } else {
     numberToGuessLabel.textContent = numberToGuess;
-    guessHelp.textContent = correctGuessMsg;
-    score--;
-    scoreLabel.textContent = score;
+    updateUI(correctGuessMsg);
     if (score > highscore) {
       highscore = score;
-      higscoreLabel.textContent = highscore;
+      highscoreLabel.textContent = highscore;
     }
   }
 }
@@ -54,4 +52,10 @@ function startAgain() {
   guessedNumber.value = '';
   score = 20;
   scoreLabel.textContent = 0;
+}
+
+function updateUI(msg) {
+  guessHelp.textContent = msg;
+  score--;
+  scoreLabel.textContent = score;
 }
