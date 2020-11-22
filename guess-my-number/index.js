@@ -6,6 +6,7 @@ const checkBtn = document.querySelector('.check-btn');
 const guessHelp = document.getElementById('guess-help');
 const scoreLabel = document.getElementById('score-label');
 const startAgainBtn = document.getElementById('start-again');
+const higscoreLabel = document.getElementById('highscore');
 
 const lowerHelpMsg = 'You need to guess lower';
 const higherHelpMsg = 'You need to guess higher';
@@ -14,6 +15,7 @@ const correctGuessMsg = 'You guessed right!';
 let numberOfGuesses = 0;
 let numberToGuess = randomNumber();
 let score = 0;
+let highscore = 0
 
 function randomNumber() {
   return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
@@ -38,6 +40,11 @@ function checkGuess() {
     guessHelp.textContent = correctGuessMsg;
     score = score + numberOfGuesses;
     scoreLabel.textContent = score;
+    if (score > highscore) {
+        highscore = score;
+        higscoreLabel.textContent = highscore;
+
+    }
     
   }
 }
