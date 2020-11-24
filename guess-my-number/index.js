@@ -15,6 +15,9 @@ const correctGuessMsg = 'You guessed right!';
 let numberToGuess = randomNumber();
 let score = 20;
 let highscore = 0;
+let currentMsg = 'Start Guessing...';
+let clicks = 0;
+let guessedNum = 0;
 
 function randomNumber() {
   return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
@@ -24,11 +27,14 @@ function randomNumber() {
 
 checkBtn.addEventListener('click', checkGuess);
 startAgainBtn.addEventListener('click', startAgain);
+guessHelp.addEventListener('mouseenter', dontKnowTheAnswer);
+guessHelp.addEventListener('mouseleave', backToNormal);
+numberToGuessLabel.addEventListener('click', lotsaClicks);
 
 //functions
 
 function checkGuess() {
-  let guessedNum = guessedNumber.value;
+  guessedNum = guessedNumber.value;
 
   if (guessedNum > numberToGuess) {
     updateUI(lowerHelpMsg);
@@ -55,7 +61,28 @@ function startAgain() {
 }
 
 function updateUI(msg) {
+  currentMsg = msg;
   guessHelp.textContent = msg;
   score--;
   scoreLabel.textContent = score;
+}
+
+function dontKnowTheAnswer() {
+  const dontKnow = "I don't know the answer, leave me alone... 😢";
+  guessHelp.textContent = dontKnow;
+}
+
+function backToNormal() {
+  guessHelp.textContent = currentMsg;
+}
+
+function lotsaClicks() {
+  if (clicks === 10) {
+    numberToGuessLabel.textContent = numberToGuess;
+  } else if (clicks > 10) {
+    clicks = 0;
+    numberToGuessLabel.textContent = '?';
+  }
+  clicks++;
+  console.log(clicks);
 }
