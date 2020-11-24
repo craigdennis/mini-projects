@@ -34,18 +34,23 @@ numberToGuessLabel.addEventListener('click', lotsaClicks);
 //functions
 
 function checkGuess() {
-  guessedNum = guessedNumber.value;
-
-  if (guessedNum > numberToGuess) {
-    updateUI(lowerHelpMsg);
-  } else if (guessedNum < numberToGuess) {
-    updateUI(higherHelpMsg);
+  if (score === 0) {
+    alert('You have lost 🙁 Try again');
+    startAgain();
   } else {
-    numberToGuessLabel.textContent = numberToGuess;
-    updateUI(correctGuessMsg);
-    if (score > highscore) {
-      highscore = score;
-      highscoreLabel.textContent = highscore;
+    guessedNum = guessedNumber.value;
+
+    if (guessedNum > numberToGuess) {
+      updateUI(lowerHelpMsg);
+    } else if (guessedNum < numberToGuess) {
+      updateUI(higherHelpMsg);
+    } else {
+      numberToGuessLabel.textContent = numberToGuess;
+      updateUI(correctGuessMsg);
+      if (score > highscore) {
+        highscore = score;
+        highscoreLabel.textContent = highscore;
+      }
     }
   }
 }
@@ -57,7 +62,7 @@ function startAgain() {
   console.log(`number to guess is ${numberToGuess}`);
   guessedNumber.value = '';
   score = 20;
-  scoreLabel.textContent = 0;
+  scoreLabel.textContent = 20;
 }
 
 function updateUI(msg) {
