@@ -45,6 +45,9 @@ function checkGuess() {
     } else if (guessedNum < numberToGuess) {
       updateUI(higherHelpMsg);
     } else {
+      if (score === 20) {
+        alert('You are lucky... or a cheater 😈');
+      }
       numberToGuessLabel.textContent = numberToGuess;
       updateUI(correctGuessMsg);
       if (score > highscore) {

@@ -1,3 +1,32 @@
+body {
+  background: rgb(98,92,250);
+  background: linear-gradient(260deg, rgba(98,92,250,1) 30%, rgba(13,0,124,1) 100%);
+  
+}
+
+.btn-container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  margin-top: 2rem;
+  padding: 10px 25px;
+  border-radius: 5px;
+  border-style: none;
+  
+}
+
+.modal-btn {
+  font-size: 2rem;
+}
+
+.submit-btn {
+  font-weight: bold;
+  border: 1px solid black;
+}
+
 .modal-box {
   display: none;
   position: fixed; /* Stay in place */
@@ -11,12 +40,23 @@
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
+.input {
+  font-size: 1.2rem;
+  padding: 5px;
+}
+
 .modal {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50vw;
+  text-align: center;
+
+}
+.modal p {
+  font-size: 1.5rem;
+
 }
 
 .close {
